@@ -17,4 +17,8 @@ echo "${BUILD_PIPELINE_NAME}" > build-pipeline-name
 echo "${BUILD_TEAM_NAME}" > build-team-name
 echo "${ATC_EXTERNAL_URL}" > atc-external-url
 
-echo "{\"version\":{\"build\":\"$BUILD_ID\"}}" >&3
+jq -n "{
+  version: {
+    build: ${BUILD_ID}
+  }
+}" >&3
