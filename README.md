@@ -2,13 +2,9 @@
 
 Caution: misuse may result in angry concourse developers.
 
-## out: emit build number as version
+## in: provide metadata as files
 
-[`out`](out) just reports the build number, so that [`in`](in) can run.
-
-## in: dump metadata to files
-
-[`in`](in) will dump the current build's metadata.
+[`in`](in) will provide the current build's metadata environment variables as files
 
 ## Usage
 
@@ -22,4 +18,9 @@ resource_types:
 resources:
 - name: metadata
   type: build-metadata
+
+jobs:
+- name: my-job
+  plan:
+  - get: metadata
 ```
