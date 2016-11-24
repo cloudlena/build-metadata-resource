@@ -1,9 +1,20 @@
 #!/bin/bash
+# vim: set ft=sh
 
-cd $1
+set -e
 
-echo "$BUILD_ID" > build-id
-echo "$BUILD_NAME" > build-name
-echo "$BUILD_JOB_NAME" > build-job-name
-echo "$BUILD_PIPELINE_NAME" > build-pipeline-name
-echo "$ATC_EXTERNAL_URL" > atc-external-url
+exec 3>&1 # make stdout available as fd 3 for the result
+exec 1>&2 # redirect all output to stderr for logging
+
+destination=$1
+
+cd "${destination}"
+
+echo "${BUILD_ID}" > build-id
+echo "${BUILD_NAME}" > build-name
+echo "${BUILD_JOB_NAME}" > build-job-name
+echo "${BUILD_PIPELINE_NAME}" > build-pipeline-name
+echo "${BUILD_TEAM_NAME}" > build-team-name
+echo "${ATC_EXTERNAL_URL}" > atc-external-url
+
+echo "{\"version\":{\"build\":\"$BUILD_ID\"}}" >&3
