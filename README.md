@@ -13,11 +13,13 @@ Caution: misuse may result in angry concourse developers.
 ## Usage
 
 ```yaml
+resource_types:
 - name: build-metadata
   type: docker-image
   source:
     repository: mastertinner/build-metadata-resource
 
+resources:
 - name: metadata
   type: build-metadata
 ```
