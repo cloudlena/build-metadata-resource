@@ -17,4 +17,14 @@ echo "${BUILD_PIPELINE_NAME}" > build-pipeline-name
 echo "${BUILD_TEAM_NAME}" > build-team-name
 echo "${ATC_EXTERNAL_URL}" > atc-external-url
 
-jq -n "{ \"version\": { \"build_id\": \"${BUILD_ID}\" } }" >&3
+jq -n "{
+  \"version\": { \"build_id\": \"${BUILD_ID}\" },
+  \"metadata\": {
+    \"BUILD_ID\": \"${BUILD_ID}\",
+    \"BUILD_NAME\": \"${BUILD_NAME}\",
+    \"BUILD_JOB_NAME\": \"${BUILD_JOB_NAME}\",
+    \"BUILD_PIPELINE_NAME\": \"${BUILD_PIPELINE_NAME}\",
+    \"BUILD_TEAM_NAME\": \"${BUILD_TEAM_NAME}\",
+    \"ATC_EXTERNAL_URL\": \"${ATC_EXTERNAL_URL}\"
+  }
+}" >&3
