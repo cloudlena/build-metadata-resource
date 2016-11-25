@@ -19,12 +19,12 @@ echo "${ATC_EXTERNAL_URL}" > atc-external-url
 
 jq -n "{
   \"version\": { \"build_id\": \"${BUILD_ID}\" },
-  \"metadata\": {
-    \"BUILD_ID\": \"${BUILD_ID}\",
-    \"BUILD_NAME\": \"${BUILD_NAME}\",
-    \"BUILD_JOB_NAME\": \"${BUILD_JOB_NAME}\",
-    \"BUILD_PIPELINE_NAME\": \"${BUILD_PIPELINE_NAME}\",
-    \"BUILD_TEAM_NAME\": \"${BUILD_TEAM_NAME}\",
-    \"ATC_EXTERNAL_URL\": \"${ATC_EXTERNAL_URL}\"
-  }
+  \"metadata\": [
+    { \"name\": \"BUILD_ID\", \"value\": \"${BUILD_ID}\" },
+    { \"name\": \"BUILD_NAME\", \"value\": \"${BUILD_NAME}\" },
+    { \"name\": \"BUILD_JOB_NAME\", \"value\": \"${BUILD_JOB_NAME}\" },
+    { \"name\": \"BUILD_PIPELINE_NAME\", \"value\": \"${BUILD_PIPELINE_NAME}\" },
+    { \"name\": \"BUILD_TEAM_NAME\", \"value\": \"${BUILD_TEAM_NAME}\" },
+    { \"name\": \"ATC_EXTERNAL_URL\", \"value\": \"${ATC_EXTERNAL_URL}\" }
+  ]
 }" >&3
