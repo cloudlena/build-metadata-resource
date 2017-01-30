@@ -1,6 +1,4 @@
-FROM alpine:latest
-
-RUN apk add --no-cache bash jq
+FROM concourse/buildroot:curl-jq
 
 COPY scripts/ /opt/resource/
 RUN chmod +x /opt/resource/*
