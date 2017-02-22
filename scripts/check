@@ -1,5 +1,5 @@
-#!/bin/sh
-# vim: set ft=sh
+#!/bin/bash
+# vim: set ft=bash
 
 set -e -u
 
