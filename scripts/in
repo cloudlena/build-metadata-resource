@@ -18,13 +18,13 @@ echo "${BUILD_TEAM_NAME}" > build-team-name
 echo "${ATC_EXTERNAL_URL}" > atc-external-url
 
 jq -n "{
-  \"version\": { \"build_id\": \"${BUILD_ID}\" },
-  \"metadata\": [
-    { \"name\": \"BUILD_ID\", \"value\": \"${BUILD_ID}\" },
-    { \"name\": \"BUILD_NAME\", \"value\": \"${BUILD_NAME}\" },
-    { \"name\": \"BUILD_JOB_NAME\", \"value\": \"${BUILD_JOB_NAME}\" },
-    { \"name\": \"BUILD_PIPELINE_NAME\", \"value\": \"${BUILD_PIPELINE_NAME}\" },
-    { \"name\": \"BUILD_TEAM_NAME\", \"value\": \"${BUILD_TEAM_NAME}\" },
-    { \"name\": \"ATC_EXTERNAL_URL\", \"value\": \"${ATC_EXTERNAL_URL}\" }
-  ]
+    \"version\": { \"build_id\": \"${BUILD_ID}\" },
+    \"metadata\": [
+        { \"name\": \"BUILD_ID\", \"value\": \"${BUILD_ID}\" },
+        { \"name\": \"BUILD_NAME\", \"value\": \"${BUILD_NAME}\" },
+        { \"name\": \"BUILD_JOB_NAME\", \"value\": \"${BUILD_JOB_NAME}\" },
+        { \"name\": \"BUILD_PIPELINE_NAME\", \"value\": \"${BUILD_PIPELINE_NAME}\" },
+        { \"name\": \"BUILD_TEAM_NAME\", \"value\": \"${BUILD_TEAM_NAME}\" },
+        { \"name\": \"ATC_EXTERNAL_URL\", \"value\": \"${ATC_EXTERNAL_URL}\" }
+    ]
 }" >&3
